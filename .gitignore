@@ -1,0 +1,25 @@
+﻿# Ignore Visual Studio specific files
+.vs/
+*.user
+*.suo
+*.cache
+*.log
+
+# Ignore build outputs
+bin/
+obj/
+
+# Ignore NuGet packages
+packages/
+*.nupkg
+project.lock.json
+project.assets.json
+
+# Ignore user-specific files
+*.sln.ide
+*.sln.DotSettings
+*.swp
+*.swn
+
+# Ignore dependencies installed via NuGet
+!packages/repositories.config
