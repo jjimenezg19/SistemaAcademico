@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PracticaDisenno
+namespace DTO
 {
     public class Alumno : Usuario
     {
@@ -17,5 +17,5 @@ namespace PracticaDisenno
                 Console.WriteLine($"Curso: {registro.Grupo.Curso.Nombre}, Nota: {registro.Nota}");
             }
         }
-    }
+    }s
 }
