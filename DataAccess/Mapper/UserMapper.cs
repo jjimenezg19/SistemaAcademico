@@ -1,6 +1,7 @@
 ﻿using System;
 using DataAccess.Dao;
 using DTO;
+using MySql.Data.MySqlClient;
 
 namespace DataAccess.Mapper
 {
@@ -23,15 +24,47 @@ namespace DataAccess.Mapper
         {
             var user = new Usuario();
 
-            if (row.ContainsKey("role_id") && int.TryParse(row["role_id"].ToString(), out int userId))
+            if (row.ContainsKey("user_id") && int.TryParse(row["user_id"].ToString(), out int userId))
                 user.Id = userId;
 
-            if (row.ContainsKey("role_id") && int.TryParse(row["role_id"]))
+            user.Nombre = row.ContainsKey("nombre") ? row["nombre"].ToString() : null;
+            user.Telefono = row.ContainsKey("telefono") ? row["telefono"].ToString() : null;
+            user.Email = row.ContainsKey("email") ? row["email"].ToString() : null;
 
-           
+            if (row.ContainsKey("fechaNacimiento") && DateTime.TryParse(row["fechaNacimiento"].ToString(), out DateTime fechaNacimiento))
+                user.FechaNacimiento = fechaNacimiento;
+            else
+                user.FechaNacimiento = default;
 
-            return null;
+            user.UserName = row.ContainsKey("userName") ? row["userName"].ToString() : null;
+            user.Contrasena = row.ContainsKey("contrasena") ? row["contrasena"].ToString() : null;
+            user.Rol = row.ContainsKey("rol") ? row["rol"].ToString() : null;
+            return user;
         }
+
+        public MySqlOperation GetRegisterUser(BaseClass entityDTO, MySqlParameter errorMessage)
+        {
+            MySqlOperation operation = new MySqlOperation
+            {
+                ProcedureName = "AgregarUsuario"
+            };
+
+            Usuario user = (Usuario)entityDTO;
+
+            operation.AddIntegerParam("id", user.Id);
+            operation.AddVarcharParam("nombre", user.Nombre);
+            operation.AddVarcharParam("telefono", user.Telefono);
+            operation.AddVarcharParam("email", user.Email);
+            operation.AddDateTimeParam("fechanacimiento", user.FechaNacimiento);
+            operation.AddVarcharParam("userName", user.UserName);
+            operation.AddVarcharParam("contrasena", user.Contrasena);
+            operation.AddVarcharParam("role", user.Rol);
+          
+            operation.parameters.Add(errorMessage);
+
+            return operation;
+        }
+
 
         public MySqlOperation GetCreateStatement(BaseClass entityDTO)
         {
