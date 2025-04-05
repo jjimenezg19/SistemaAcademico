@@ -1,6 +1,6 @@
 ﻿namespace DTO
 {
-    public class Grupo
+    public class Grupo 
     {
         public int CicloAnio { get; set; }
         public int CicloNumero { get; set; }
@@ -8,6 +8,7 @@
         public int NumeroDeGrupo { get; set; }
         public DateTime Horario { get; set; }
         public Profesor Profesor { get; set; }
+        public Curso Curso { get; set; }
         public List<Alumno> Estudiantes { get; set; } = new List<Alumno>();
 
         public void AsignarProfesor(Profesor profesor) => Profesor = profesor;
