@@ -1,7 +1,8 @@
-﻿using System;
+using System;
 using BL;
 using DTO;
-using BL.Factory; 
+using BL.Factory;
+using UI.View;
 
 namespace UI
 {
@@ -9,6 +10,8 @@ namespace UI
     {
         static void Main(string[] args)
         {
+            var userView = new UserView();
+
             bool salir = false;
 
             while (!salir)
@@ -23,7 +26,7 @@ namespace UI
                 switch (opcion)
                 {
                     case "1":
-                        RegistrarUsuario();
+                        userView.RegistrarUsuario();
                         break;
                     case "2":
                         salir = true;

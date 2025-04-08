@@ -27,6 +27,7 @@ namespace DataAccess.Mapper
             if (row.ContainsKey("user_id") && int.TryParse(row["user_id"].ToString(), out int userId))
                 user.Id = userId;
 
+            user.Cedula = row.ContainsKey("cedula") ? row["cedula"].ToString() : null;
             user.Nombre = row.ContainsKey("nombre") ? row["nombre"].ToString() : null;
             user.Telefono = row.ContainsKey("telefono") ? row["telefono"].ToString() : null;
             user.Email = row.ContainsKey("email") ? row["email"].ToString() : null;
@@ -51,14 +52,14 @@ namespace DataAccess.Mapper
 
             Usuario user = (Usuario)entityDTO;
 
-            operation.AddIntegerParam("id", user.Id);
-            operation.AddVarcharParam("nombre", user.Nombre);
-            operation.AddVarcharParam("telefono", user.Telefono);
-            operation.AddVarcharParam("email", user.Email);
-            operation.AddDateTimeParam("fechanacimiento", user.FechaNacimiento);
-            operation.AddVarcharParam("userName", user.UserName);
-            operation.AddVarcharParam("contrasena", user.Contrasena);
-            operation.AddVarcharParam("role", user.Rol);
+            operation.AddVarcharParam("p_cedula", user.Cedula);
+            operation.AddVarcharParam("p_nombre", user.Nombre);
+            operation.AddVarcharParam("p_telefono", user.Telefono);
+            operation.AddVarcharParam("p_email", user.Email);
+            operation.AddDateTimeParam("p_fechanacimiento", user.FechaNacimiento);
+            operation.AddVarcharParam("p_userName", user.UserName);
+            operation.AddVarcharParam("p_contrasena", user.Contrasena);
+            operation.AddVarcharParam("p_rol", user.Rol);
           
             operation.parameters.Add(errorMessage);
 
