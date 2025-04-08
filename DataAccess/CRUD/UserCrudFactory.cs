@@ -26,8 +26,14 @@ namespace DataAccess.CRUD
             MySqlOperation operation = _mapper.GetRegisterUser(entityDTO, errorMessage);
             dao.ExecuteStoredProcedure(operation);
 
-            string error = errorMessage.Value as string;
-            throw new NotImplementedException(error);
+            string error = errorMessage.Value?.ToString();
+
+            if(!string.IsNullOrEmpty(error))
+            {
+                return $"Error al registrar: {error}";
+            }
+
+            return "Usuario registrado correctamente.";
         }
 
         public override void Delete(BaseClass entityDTO)

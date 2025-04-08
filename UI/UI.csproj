@@ -11,4 +11,10 @@
     <ProjectReference Include="..\BL\BL.csproj" />
     <ProjectReference Include="..\DTO\DTO.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="View\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="View\" />
+  </ItemGroup>
 </Project>

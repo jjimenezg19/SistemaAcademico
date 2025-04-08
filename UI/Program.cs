@@ -1,6 +1,5 @@
 ﻿using System;
-using BL;
-using DTO;
+using UI.View;
 
 namespace UI
 {
@@ -8,6 +7,8 @@ namespace UI
     {
         static void Main(string[] args)
         {
+            var userView = new UserView();
+
             bool salir = false;
 
             while (!salir)
@@ -22,7 +23,7 @@ namespace UI
                 switch (opcion)
                 {
                     case "1":
-                        RegistrarUsuario();
+                        userView.RegistrarUsuario();
                         break;
                     case "2":
                         salir = true;
@@ -34,45 +35,6 @@ namespace UI
 
                 Console.WriteLine("\nPresione cualquier tecla para continuar...");
                 Console.ReadKey();
-            }
-        }
-
-        static void RegistrarUsuario()
-        {
-            Usuario nuevoUsuario = new Usuario();
-
-            Console.WriteLine("\n--- Registro de Usuario ---");
-            Console.Write("Nombre: ");
-            nuevoUsuario.Nombre = Console.ReadLine();
-
-            Console.Write("Teléfono: ");
-            nuevoUsuario.Telefono = Console.ReadLine();
-
-            Console.Write("Email: ");
-            nuevoUsuario.Email = Console.ReadLine();
-
-            Console.Write("Fecha de nacimiento (yyyy-MM-dd): ");
-            nuevoUsuario.FechaNacimiento = DateTime.Parse(Console.ReadLine());
-
-            Console.Write("Username: ");
-            nuevoUsuario.UserName = Console.ReadLine();
-
-            Console.Write("Contraseña: ");
-            nuevoUsuario.Contrasena = Console.ReadLine();
-
-            Console.Write("Rol: ");
-            nuevoUsuario.Rol = Console.ReadLine();
-
-            var userManager = new UserManager();
-
-            try
-            {
-                string resultado = userManager.RegisterUser(nuevoUsuario);
-                Console.WriteLine($"\nResultado: {resultado}");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"\nError al registrar: {ex.Message}");
             }
         }
     }
