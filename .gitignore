@@ -4,6 +4,7 @@
 *.suo
 *.cache
 *.log
+*.DS_Store
 
 # Ignore build outputs
 bin/
