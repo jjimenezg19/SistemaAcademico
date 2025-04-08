@@ -1,6 +1,7 @@
 ﻿using System;
 using BL;
 using DTO;
+using BL.Factory; 
 
 namespace UI
 {
@@ -39,29 +40,32 @@ namespace UI
 
         static void RegistrarUsuario()
         {
-            Usuario nuevoUsuario = new Usuario();
-
             Console.WriteLine("\n--- Registro de Usuario ---");
             Console.Write("Nombre: ");
-            nuevoUsuario.Nombre = Console.ReadLine();
+            string nombre = Console.ReadLine();
 
             Console.Write("Teléfono: ");
-            nuevoUsuario.Telefono = Console.ReadLine();
+            string telefono = Console.ReadLine();
 
             Console.Write("Email: ");
-            nuevoUsuario.Email = Console.ReadLine();
+            string email = Console.ReadLine();
 
             Console.Write("Fecha de nacimiento (yyyy-MM-dd): ");
-            nuevoUsuario.FechaNacimiento = DateTime.Parse(Console.ReadLine());
+            DateTime fechaNacimiento = DateTime.Parse(Console.ReadLine());
 
             Console.Write("Username: ");
-            nuevoUsuario.UserName = Console.ReadLine();
+            string username = Console.ReadLine();
 
             Console.Write("Contraseña: ");
-            nuevoUsuario.Contrasena = Console.ReadLine();
+            string contrasena = Console.ReadLine();
 
             Console.Write("Rol: ");
-            nuevoUsuario.Rol = Console.ReadLine();
+            string rol = Console.ReadLine();
+
+            // Crear el usuario usando el Factory Method
+            Usuario nuevoUsuario = UsuarioFactoryManager.ConstruirUsuario(rol, nombre, email, username, contrasena);
+            nuevoUsuario.Telefono = telefono;
+            nuevoUsuario.FechaNacimiento = fechaNacimiento;
 
             var userManager = new UserManager();
 
