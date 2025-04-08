@@ -25,3 +25,4 @@ project.assets.json
 # Ignore dependencies installed via NuGet
 !packages/repositories.config
 .DS_Store
+.DS_Store
