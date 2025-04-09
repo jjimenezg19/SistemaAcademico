@@ -1,5 +1,4 @@
-﻿using System;
-using DataAccess.Dao;
+﻿using DataAccess.Dao;
 using DTO;
 
 namespace DataAccess.Mapper

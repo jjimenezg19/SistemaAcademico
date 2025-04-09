@@ -4,6 +4,7 @@
 *.suo
 *.cache
 *.log
+*.DS_Store
 
 # Ignore build outputs
 bin/
@@ -23,3 +24,5 @@ project.assets.json
 
 # Ignore dependencies installed via NuGet
 !packages/repositories.config
+.DS_Store
+.DS_Store
