@@ -1,7 +1,7 @@
 ﻿using System;
 using BL;
 using DTO;
-using BL.Factory;
+using BL.Factory; // ← Agregamos esta línea para usar el Factory
 
 namespace UI.View
 {
@@ -60,6 +60,7 @@ namespace UI.View
                     break;
             }
 
+            // Crear usuario con Factory Method
             Usuario nuevoUsuario = UsuarioFactoryManager.ConstruirUsuario(rol, nombre, cedula, email, username, contrasena);
             nuevoUsuario.Telefono = telefono;
             nuevoUsuario.FechaNacimiento = fechaNacimiento;
