@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Data;
 using DataAccess.Dao;
 using DTO;
 using MySql.Data.MySqlClient;
@@ -60,7 +60,13 @@ namespace DataAccess.Mapper
             operation.AddVarcharParam("p_userName", user.UserName);
             operation.AddVarcharParam("p_contrasena", user.Contrasena);
             operation.AddVarcharParam("p_rol", user.Rol);
-          
+
+            //Parametro de salida que recibe la repsuesta del Store Procedure 
+            errorMessage.ParameterName = "p_errorMessage";
+            errorMessage.Direction = ParameterDirection.Output;
+            errorMessage.MySqlDbType = MySqlDbType.VarChar;
+            errorMessage.Size = 255;
+
             operation.parameters.Add(errorMessage);
 
             return operation;

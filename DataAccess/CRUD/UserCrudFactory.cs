@@ -20,6 +20,9 @@ namespace DataAccess.CRUD
         {
             var errorMessage = new MySqlParameter("@errorMessage", MySqlDbType.VarChar, 255)
             {
+                ParameterName = "p_errorMessage",
+                MySqlDbType = MySqlDbType.VarChar,
+                Size = 255,
                 Direction = ParameterDirection.Output
             };
 
@@ -27,13 +30,7 @@ namespace DataAccess.CRUD
             dao.ExecuteStoredProcedure(operation);
 
             string error = errorMessage.Value?.ToString();
-
-            if(!string.IsNullOrEmpty(error))
-            {
-                return $"Error al registrar: {error}";
-            }
-
-            return "Usuario registrado correctamente.";
+            return error;
         }
 
         public override void Delete(BaseClass entityDTO)

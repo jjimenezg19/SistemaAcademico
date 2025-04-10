@@ -75,10 +75,5 @@ namespace DataAccess.Dao
                 });
             }
         }
-
-
-
-
-
     }
 }

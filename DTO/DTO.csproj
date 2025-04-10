@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Observer\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Observer\" />
+  </ItemGroup>
 </Project>

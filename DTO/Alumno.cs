@@ -1,7 +1,8 @@
-﻿
+﻿using Observer;
+
 namespace DTO
 {
-    public class Alumno : Usuario
+    public class Alumno : Usuario, IObserver
     {
         public List<RegistroNota> HistorialAcademico { get; set; } = new List<RegistroNota>();
 
@@ -11,6 +12,11 @@ namespace DTO
             {
                 Console.WriteLine($"Curso: {registro.Grupo.Curso.Nombre}, Nota: {registro.Nota}");
             }
+        }
+
+        public void Update(string mensaje)
+        {
+            Console.WriteLine($"[Notificación para {Nombre}]: {mensaje}");
         }
     }
 }
