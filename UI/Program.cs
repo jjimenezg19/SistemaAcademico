@@ -16,7 +16,8 @@ namespace UI
                 Console.Clear();
                 Console.WriteLine("=== GESTIÓN DE USUARIOS ===");
                 Console.WriteLine("1. Registrar Usuario");
-                Console.WriteLine("2. Salir");
+                Console.WriteLine("2. Iniciar Sesioón");
+                Console.WriteLine("3. Salir");
                 Console.Write("Seleccione una opción: ");
                 var opcion = Console.ReadLine();
 
@@ -26,6 +27,9 @@ namespace UI
                         userView.RegistrarUsuario();
                         break;
                     case "2":
+                        userView.Login();
+                        break;
+                    case "3":
                         salir = true;
                         break;
                     default:

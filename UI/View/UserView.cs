@@ -1,34 +1,41 @@
 ﻿using System;
 using BL;
 using DTO;
-using BL.Factory; // ← Agregamos esta línea para usar el Factory
+using BL.Factory; 
 
 namespace UI.View
 {
     public class UserView
     {
+        private readonly UserManager _userManger;
+
+        public UserView()
+        {
+            _userManger = new UserManager();
+        }
+
         public void RegistrarUsuario()
         {
             Console.WriteLine("\n--- Registro de Usuario ---");
-            Console.Write("Nombre: ");
+            Console.Write("Ingrese el Nombre: ");
             string nombre = Console.ReadLine();
 
-            Console.Write("Cedula: ");
+            Console.Write("Ingrese la Cedula: ");
             string cedula = Console.ReadLine();
 
-            Console.Write("Teléfono: ");
+            Console.Write("Ingrese el Teléfono: ");
             string telefono = Console.ReadLine();
 
-            Console.Write("Email: ");
+            Console.Write("Ingrese el Email: ");
             string email = Console.ReadLine();
 
-            Console.Write("Fecha de nacimiento (yyyy-MM-dd): ");
+            Console.Write("ingrese la Fecha de nacimiento (yyyy-MM-dd): ");
             DateTime fechaNacimiento = DateTime.Parse(Console.ReadLine());
 
-            Console.Write("Username: ");
+            Console.Write("Ingrese el Username: ");
             string username = Console.ReadLine();
 
-            Console.Write("Contraseña: ");
+            Console.Write("Ingrese la Contraseña: ");
             string contrasena = Console.ReadLine();
 
             Console.WriteLine("Seleccione el rol del usuario:");
@@ -66,17 +73,38 @@ namespace UI.View
             nuevoUsuario.FechaNacimiento = fechaNacimiento;
             nuevoUsuario.Rol = rol;
 
-            var userManager = new UserManager();
-
             try
             {
-                string resultado = userManager.RegisterUser(nuevoUsuario);
+                string resultado = _userManger.RegisterUser(nuevoUsuario);
                 Console.WriteLine($"\nResultado: {resultado}");
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"\nError al registrar: {ex.Message}");
             }
+        }
+
+
+        public void Login()
+        {
+            Console.WriteLine("\n--- Inicio de Sescioón ---");
+
+            Console.Write("Ingrese el Username: ");
+            string username = Console.ReadLine();
+
+            Console.Write("Ingrese la Contraseña: ");
+            string contrasena = Console.ReadLine();
+
+            try
+            {
+                string resultado = _userManger.Login(username, contrasena);
+                Console.WriteLine($"\nResultado: {resultado}");
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine($"\nError en el Login: {ex.Message}");
+            }
+            
         }
     }
 }

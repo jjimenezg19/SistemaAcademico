@@ -1,4 +1,4 @@
-﻿using Observer
+﻿using Observer;
 
 namespace DTO
 {

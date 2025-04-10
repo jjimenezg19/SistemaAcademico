@@ -72,6 +72,26 @@ namespace DataAccess.Mapper
             return operation;
         }
 
+        public MySqlOperation GetLoginUser(string username, string password, MySqlParameter errorMessage)
+        {
+            MySqlOperation operation = new MySqlOperation
+            {
+                ProcedureName = "VerificacionLogin"
+            };
+
+            operation.AddVarcharParam("p_username", username);
+            operation.AddVarcharParam("p_contrasena", password);
+
+            //Parametro de salida que recibe la repsuesta del Store Procedure 
+            errorMessage.ParameterName = "p_errorMessage";
+            errorMessage.Direction = ParameterDirection.Output;
+            errorMessage.MySqlDbType = MySqlDbType.VarChar;
+            errorMessage.Size = 255;
+
+            operation.parameters.Add(errorMessage);
+
+            return operation;
+        }
 
         public MySqlOperation GetCreateStatement(BaseClass entityDTO)
         {

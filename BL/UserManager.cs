@@ -1,5 +1,7 @@
 ﻿using DTO;
 using DataAccess.CRUD;
+using MySql.Data.MySqlClient;
+using DataAccess.Dao;
 
 namespace BL
 {
@@ -11,6 +13,14 @@ namespace BL
 
 			return us_crud.Create(user);
 		}
+
+		public String Login(string username, string password)
+		{
+			UserCrudFactory us_crud = new UserCrudFactory();
+            string message = us_crud.RetrieveLoginVerification(username, password);
+
+			return message;
+        }
 	}
 }
 

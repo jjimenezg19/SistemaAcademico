@@ -33,6 +33,23 @@ namespace DataAccess.CRUD
             return error;
         }
 
+        public String RetrieveLoginVerification(string username, string password)
+        {
+            var errorMessage = new MySqlParameter("@errorMessage", MySqlDbType.VarChar, 255)
+            {
+                ParameterName = "p_errorMessage",
+                MySqlDbType = MySqlDbType.VarChar,
+                Size = 255,
+                Direction = ParameterDirection.Output
+            };
+
+            MySqlOperation operation = _mapper.GetLoginUser(username, password, errorMessage);
+            dao.ExecuteStoredProcedureWithUniqueResult(operation);
+
+            string message = errorMessage.Value.ToString();
+            return message;
+        }
+
         public override void Delete(BaseClass entityDTO)
         {
             throw new NotImplementedException();
