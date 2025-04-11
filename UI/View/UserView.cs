@@ -93,16 +93,43 @@ namespace UI.View
 
             Console.Write("Ingrese la Contraseña: ");
             string contrasena = Console.ReadLine();
-
-            var (user, message) = _userManger.Login(username, contrasena);
             
-            if (user != null)
+            try
             {
-                Console.WriteLine($"{message} Bienvenido {user.Nombre}, Rol: {user.Rol}");
-            } else
-            {
-                Console.WriteLine($"\n{message}");
+                var (user, message) = _userManger.Login(username, contrasena);
+                if (user != null)
+                {
+                    Console.WriteLine($"{message} Bienvenido {user.Nombre}, Rol: {user.Rol}");
+                    
+                    switch (user.Rol.ToLower())
+                    {
+                        case "alumno":
+                            //MostrarMenuAlumno((Alumno)user);
+                            break;
+                        case "profesor":
+                            //MostrarMenuProfesor((Profesor)user);
+                            break;
+                        case "administrador":
+                            //MostrarMenuAdministrador((Administrador)user);
+                            break;
+                        case "matriculador":
+                            //MostrarMenuMatriculador((Matriculador)user);
+                            break;
+                        default:
+                            Console.WriteLine("Rol no reconocido. Acceso limitado.");
+                            break;
+                    }
+                } else
+                {
+                    Console.WriteLine($"\n{message}");
+                }
             }
+            catch (Exception e)
+            {
+                Console.WriteLine($"\nError: {e.Message}");
+
+            }
+            
         }
     }
 }
