@@ -12,122 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44b5f5fe-2af6-410d-bf29-afd9e9ea0aa3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.SistemaAcademico/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.SistemaAcademico/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BL/Factory/AdministradorCreator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BL/Factory/AlumnoCreator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BL/Factory/ProfesorCreator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BL/Factory/UsuarioCreator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BL/UserManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DTO/ExpedienteNotas.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataAccess/CRUD/CrudFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataAccess/CRUD/UserCrudFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataAccess/Mapper/IObjectMapper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataAccess/Mapper/UserMapper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UI/UI.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/global.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SistemaAcademico/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SistemaAcademico/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/Api.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/Program.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/Properties/launchSettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/appsettings.Development.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Api/appsettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BL/BL.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BL/BL.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTO/Administrador.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/Administrador.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTO/Alumno.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/Alumno.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTO/Carrera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/Carrera.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTO/Ciclo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/Ciclo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTO/Curso.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/Curso.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTO/Grupo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/Grupo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTO/Matricula.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/Matricula.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTO/Matriculador.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/Matriculador.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTO/Persona.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/Persona.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTO/Profesor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/Profesor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTO/RegistroNota.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/RegistroNota.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTO/Usuario.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/Usuario.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataAccess/DAO/MySqlDao.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccess/DAO/MySqlDao.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataAccess/DataAccess.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccess/DataAccess.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataAccess/Mapper/ICrudStatements.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccess/Mapper/ICrudStatements.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico.sln" beforeDir="false" afterPath="$PROJECT_DIR$/SistemaAcademico.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/Controllers/HomeController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/Models/ErrorViewModel.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/Program.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/Properties/launchSettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/SistemaAcademico.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/SistemaAcademico.sln" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/Views/Home/Index.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/Views/Home/Privacy.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/Views/Shared/Error.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/Views/Shared/_Layout.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/Views/Shared/_Layout.cshtml.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/Views/Shared/_ValidationScriptsPartial.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/Views/_ViewImports.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/Views/_ViewStart.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/appsettings.Development.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/appsettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/css/site.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/js/site.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/css/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/js/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/jquery-validation/LICENSE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/jquery-validation/dist/additional-methods.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/jquery-validation/dist/additional-methods.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/jquery-validation/dist/jquery.validate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/jquery/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/jquery/dist/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/jquery/dist/jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SistemaAcademico/wwwroot/lib/jquery/dist/jquery.min.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/View/UserView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UI/View/UserView.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +46,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Merging Camilas__branch",
+    "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -260,6 +145,7 @@
       <updated>1744155661464</updated>
       <workItem from="1744155668384" duration="515000" />
       <workItem from="1744157376862" duration="592000" />
+      <workItem from="1744395426116" duration="497000" />
     </task>
     <servers />
   </component>
