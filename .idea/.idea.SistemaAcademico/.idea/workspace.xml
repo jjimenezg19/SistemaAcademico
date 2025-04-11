@@ -12,17 +12,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44b5f5fe-2af6-410d-bf29-afd9e9ea0aa3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BL/CursoManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataAccess/DAO/CursoDao.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataAccess/Mapper/CursoMapper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UI/View/CursoView.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BL/CarreraManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataAccess/CRUD/CarreraCrudFactory.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataAccess/DAO/CarreraDao.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataAccess/Mapper/CarreraMapper.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UI/View/CarreraView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SistemaAcademico/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SistemaAcademico/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTO/Curso.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/Curso.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataAccess/DAO/MySqlDao.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccess/DAO/MySqlDao.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DTO/Carrera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/Carrera.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccess/DAO/CursoDao.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccess/DAO/CursoDao.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataAccess/DataAccess.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccess/DataAccess.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UI/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/UI.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/UI/UI.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/global.json" beforeDir="false" afterPath="$PROJECT_DIR$/global.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +155,7 @@
       <updated>1744155661464</updated>
       <workItem from="1744155668384" duration="515000" />
       <workItem from="1744157376862" duration="592000" />
-      <workItem from="1744395426116" duration="4596000" />
+      <workItem from="1744395426116" duration="7053000" />
     </task>
     <servers />
   </component>

@@ -1,7 +1,8 @@
-﻿
+﻿using System.Collections.Generic;
+
 namespace DTO
 {
-    public class Carrera
+    public class Carrera : BaseClass
     {
         public int Codigo { get; set; }
         public string Nombre { get; set; }
