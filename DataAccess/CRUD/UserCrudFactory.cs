@@ -57,8 +57,13 @@ namespace DataAccess.CRUD
 
         public override List<T> RetrieveAll<T>()
         {
-            throw new NotImplementedException();
+            var operation = _mapper.GetRetrieveAllStatement();
+            var resultSet = dao.ExecuteStoredProcedureWithQuery(operation); 
+            var baseObjects = _mapper.BuildObjects(resultSet);              
+
+            return baseObjects.Cast<T>().ToList();                         
         }
+
 
         public override BaseClass RetrieveById(int id)
         {
