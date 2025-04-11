@@ -8,6 +8,7 @@ namespace UI
         static void Main(string[] args)
         {
             var userView = new UserView();
+            var cursoView = new CursoView();
 
             bool salir = false;
 
@@ -17,7 +18,8 @@ namespace UI
                 Console.WriteLine("=== GESTIÓN DE USUARIOS ===");
                 Console.WriteLine("1. Registrar Usuario");
                 Console.WriteLine("2. Iniciar Sesioón");
-                Console.WriteLine("3. Salir");
+                Console.WriteLine("3. Mantenimiento de Cursos");
+                Console.WriteLine("4. Salir");
                 Console.Write("Seleccione una opción: ");
                 var opcion = Console.ReadLine();
 
@@ -30,6 +32,9 @@ namespace UI
                         userView.Login();
                         break;
                     case "3":
+                        cursoView.MostrarMenuBusqueda();
+                        break;
+                    case "4":
                         salir = true;
                         break;
                     default:
