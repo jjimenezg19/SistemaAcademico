@@ -83,8 +83,7 @@ namespace UI.View
                 Console.WriteLine($"\nError al registrar: {ex.Message}");
             }
         }
-
-
+        
         public void Login()
         {
             Console.WriteLine("\n--- Inicio de Sescioón ---");
@@ -95,16 +94,15 @@ namespace UI.View
             Console.Write("Ingrese la Contraseña: ");
             string contrasena = Console.ReadLine();
 
-            try
-            {
-                string resultado = _userManger.Login(username, contrasena);
-                Console.WriteLine($"\nResultado: {resultado}");
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine($"\nError en el Login: {ex.Message}");
-            }
+            var (user, message) = _userManger.Login(username, contrasena);
             
+            if (user != null)
+            {
+                Console.WriteLine($"{message} Bienvenido {user.Nombre}, Rol: {user.Rol}");
+            } else
+            {
+                Console.WriteLine($"\n{message}");
+            }
         }
     }
 }

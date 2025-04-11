@@ -14,7 +14,7 @@ namespace UI
             while (!salir)
             {
                 Console.Clear();
-                Console.WriteLine("=== GESTIÓN DE USUARIOS ===");
+                Console.WriteLine("=== Sistema Academiíco ===");
                 Console.WriteLine("1. Registrar Usuario");
                 Console.WriteLine("2. Iniciar Sesioón");
                 Console.WriteLine("3. Salir");

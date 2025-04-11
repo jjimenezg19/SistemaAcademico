@@ -22,6 +22,9 @@ namespace DataAccess.Mapper
 
         public BaseClass BuildObject(Dictionary<string, object> row)
         {
+            if (row == null)
+                return null;
+            
             var user = new Usuario();
 
             if (row.ContainsKey("user_id") && int.TryParse(row["user_id"].ToString(), out int userId))
@@ -72,7 +75,7 @@ namespace DataAccess.Mapper
             return operation;
         }
 
-        public MySqlOperation GetLoginUser(string username, string password, MySqlParameter errorMessage)
+        public MySqlOperation GetLoginVerification(string username, string password, MySqlParameter outputParam)
         {
             MySqlOperation operation = new MySqlOperation
             {
@@ -82,13 +85,7 @@ namespace DataAccess.Mapper
             operation.AddVarcharParam("p_username", username);
             operation.AddVarcharParam("p_contrasena", password);
 
-            //Parametro de salida que recibe la repsuesta del Store Procedure 
-            errorMessage.ParameterName = "p_errorMessage";
-            errorMessage.Direction = ParameterDirection.Output;
-            errorMessage.MySqlDbType = MySqlDbType.VarChar;
-            errorMessage.Size = 255;
-
-            operation.parameters.Add(errorMessage);
+            operation.parameters.Add(outputParam);
 
             return operation;
         }
