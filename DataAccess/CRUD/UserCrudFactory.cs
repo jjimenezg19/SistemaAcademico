@@ -18,19 +18,15 @@ namespace DataAccess.CRUD
 
         public override String Create(BaseClass entityDTO)
         {
-            var errorMessage = new MySqlParameter("@errorMessage", MySqlDbType.VarChar, 255)
+            var errorMessage = new MySqlParameter("@p_errorMessage", MySqlDbType.VarChar, 255)
             {
-                ParameterName = "p_errorMessage",
-                MySqlDbType = MySqlDbType.VarChar,
-                Size = 255,
                 Direction = ParameterDirection.Output
             };
 
             MySqlOperation operation = _mapper.GetCreateStatement(entityDTO, errorMessage);
             dao.ExecuteStoredProcedure(operation);
 
-            string error = errorMessage.Value?.ToString();
-            return error;
+            return errorMessage.Value?.ToString();
         }
 
         public (Usuario, string) RetrieveLoginVerification(string username, string password)

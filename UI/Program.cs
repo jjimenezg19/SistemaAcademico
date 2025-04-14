@@ -18,7 +18,7 @@ namespace UI
                 Console.Clear();
                 Console.WriteLine("=== Sistema Academiíco ===");
                 Console.WriteLine("1. Registrar Usuario");
-                Console.WriteLine("2. Iniciar Sesioón");
+                Console.WriteLine("2. Iniciar Sesión");
                 Console.WriteLine("3. Mantenimiento de Cursos");
                 Console.WriteLine("4. Mantenimiento de Carreras");
                 Console.WriteLine("5. Salir");

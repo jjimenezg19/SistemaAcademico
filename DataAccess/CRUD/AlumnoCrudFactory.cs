@@ -43,11 +43,21 @@ public class AlumnoCrudFactory : CrudFactory
     
     public (Usuario, string) RetrieveByName(string name)
     {
-        var outputParam = new MySqlParameter("@p_errorMessage", MySqlDbType.VarChar, 255)
+        var outputParam = new MySqlParameter("@p_mensaje", MySqlDbType.VarChar, 255)
         {
             Direction = ParameterDirection.Output
         };
         
-        return (null, "no implementado");
+        var operation = _mapper.GetRetrieveByNameStatement(name, outputParam);
+        var result = dao.ExecuteStoredProcedureWithUniqueResult(operation);
+        
+        string message = outputParam.Value.ToString();
+        
+        if (result == null || result.Count == 0)
+            return (null, message);
+        
+        var alumno = (Usuario)_mapper.BuildObject(result);
+        return (alumno, message);
     }
+    
 }

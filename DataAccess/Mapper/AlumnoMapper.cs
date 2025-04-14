@@ -76,9 +76,11 @@ public class AlumnoMapper : ICrudStatements, IObjectMapper
     {
         MySqlOperation operation = new MySqlOperation()
         {
-            ProcedureName = "GetAlumnoByName"
+            ProcedureName = "BuscarAlumnoPorNombre"
         };
-
+        
+        operation.AddVarcharParam("p_nombre", name);
+        operation.parameters.Add(outputParam);
         return operation;
     }
 }

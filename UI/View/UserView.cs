@@ -86,14 +86,15 @@ namespace UI.View
         
         public void Login()
         {
-            Console.WriteLine("\n--- Inicio de Sescioón ---");
+            Console.WriteLine("\n--- Inicio de Sesión ---");
 
             Console.Write("Ingrese el Username: ");
             string username = Console.ReadLine();
 
             Console.Write("Ingrese la Contraseña: ");
             string contrasena = Console.ReadLine();
-            
+            Console.WriteLine($"\n");
+
             try
             {
                 var (user, message) = _userManger.Login(username, contrasena);
@@ -111,7 +112,8 @@ namespace UI.View
                             profesorView.MostrarMenu();
                             break;
                         case "administrador":
-                            //MostrarMenuAdministrador((Administrador)user);
+                            var adminView = new AdminView();
+                            adminView.MostrarMenu();
                             break;
                         case "matriculador":
                             //MostrarMenuMatriculador((Matriculador)user);
