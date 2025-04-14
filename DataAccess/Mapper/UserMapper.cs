@@ -46,7 +46,7 @@ namespace DataAccess.Mapper
             return user;
         }
 
-        public MySqlOperation GetRegisterUser(BaseClass entityDTO, MySqlParameter errorMessage)
+        public MySqlOperation GetCreateStatement(BaseClass entityDTO, MySqlParameter errorMessage)
         {
             MySqlOperation operation = new MySqlOperation
             {
@@ -89,13 +89,8 @@ namespace DataAccess.Mapper
 
             return operation;
         }
-
-        public MySqlOperation GetCreateStatement(BaseClass entityDTO)
-        {
-            throw new NotImplementedException();
-        }
-
-        public MySqlOperation GetDeleteStatement(BaseClass entityDTO)
+        
+        public MySqlOperation GetDeleteStatement(BaseClass entityDTO, MySqlParameter errorMessage)
         {
             throw new NotImplementedException();
         }
@@ -110,7 +105,7 @@ namespace DataAccess.Mapper
             throw new NotImplementedException();
         }
 
-        public MySqlOperation GetUpdateStatement(BaseClass entityDTO)
+        public MySqlOperation GetUpdateStatement(BaseClass entityDTO, MySqlParameter errorMessage)
         {
             throw new NotImplementedException();
         }

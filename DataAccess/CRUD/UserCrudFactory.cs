@@ -26,7 +26,7 @@ namespace DataAccess.CRUD
                 Direction = ParameterDirection.Output
             };
 
-            MySqlOperation operation = _mapper.GetRegisterUser(entityDTO, errorMessage);
+            MySqlOperation operation = _mapper.GetCreateStatement(entityDTO, errorMessage);
             dao.ExecuteStoredProcedure(operation);
 
             string error = errorMessage.Value?.ToString();

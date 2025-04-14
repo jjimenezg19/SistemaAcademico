@@ -107,7 +107,8 @@ namespace UI.View
                             //MostrarMenuAlumno((Alumno)user);
                             break;
                         case "profesor":
-                            //MostrarMenuProfesor((Profesor)user);
+                            var profesorView = new ProfesorView();
+                            profesorView.MostrarMenu();
                             break;
                         case "administrador":
                             //MostrarMenuAdministrador((Administrador)user);
