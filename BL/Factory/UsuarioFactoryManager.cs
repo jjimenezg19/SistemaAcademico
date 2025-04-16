@@ -19,6 +19,9 @@ namespace BL.Factory
                 case "administrador":
                     creador = new AdministradorCreator();
                     break;
+                case "matriculador":
+                    creador = new MatriculadorCreator();
+                    break;
                 default:
                     throw new ArgumentException("Rol no válido");
             }

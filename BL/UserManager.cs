@@ -7,19 +7,19 @@ namespace BL
 {
 	public class UserManager
 	{
+		private readonly UserCrudFactory us_crud;
+		public UserManager()
+		{
+			us_crud = new UserCrudFactory();
+		}
+		
 		public String RegisterUser(Usuario user)
 		{
-			UserCrudFactory us_crud = new UserCrudFactory();
-
 			return us_crud.Create(user);
 		}
-
-		public String Login(string username, string password)
+		public (Usuario, string) Login(string username, string password)
 		{
-			UserCrudFactory us_crud = new UserCrudFactory();
-            string message = us_crud.RetrieveLoginVerification(username, password);
-
-			return message;
+			return us_crud.RetrieveLoginVerification(username, password);
         }
 	}
 }

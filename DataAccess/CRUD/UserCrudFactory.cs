@@ -18,36 +18,34 @@ namespace DataAccess.CRUD
 
         public override String Create(BaseClass entityDTO)
         {
-            var errorMessage = new MySqlParameter("@errorMessage", MySqlDbType.VarChar, 255)
+            var errorMessage = new MySqlParameter("@p_errorMessage", MySqlDbType.VarChar, 255)
             {
-                ParameterName = "p_errorMessage",
-                MySqlDbType = MySqlDbType.VarChar,
-                Size = 255,
                 Direction = ParameterDirection.Output
             };
 
-            MySqlOperation operation = _mapper.GetRegisterUser(entityDTO, errorMessage);
+            MySqlOperation operation = _mapper.GetCreateStatement(entityDTO, errorMessage);
             dao.ExecuteStoredProcedure(operation);
 
-            string error = errorMessage.Value?.ToString();
-            return error;
+            return errorMessage.Value?.ToString();
         }
 
-        public String RetrieveLoginVerification(string username, string password)
+        public (Usuario, string) RetrieveLoginVerification(string username, string password)
         {
-            var errorMessage = new MySqlParameter("@errorMessage", MySqlDbType.VarChar, 255)
+            var outputParam = new MySqlParameter("@p_errorMessage", MySqlDbType.VarChar, 255)
             {
-                ParameterName = "p_errorMessage",
-                MySqlDbType = MySqlDbType.VarChar,
-                Size = 255,
                 Direction = ParameterDirection.Output
             };
+                
+            var operation = _mapper.GetLoginVerification(username, password, outputParam);
+            var result = dao.ExecuteStoredProcedureWithUniqueResult(operation);
 
-            MySqlOperation operation = _mapper.GetLoginUser(username, password, errorMessage);
-            dao.ExecuteStoredProcedureWithUniqueResult(operation);
-
-            string message = errorMessage.Value.ToString();
-            return message;
+            string message = outputParam.Value?.ToString();
+            
+            if (result == null || result.Count == 0)
+                return (null, message); 
+            
+            var user = (Usuario)_mapper.BuildObject(result);
+            return (user, message);
         }
 
         public override void Delete(BaseClass entityDTO)

@@ -12,11 +12,6 @@
     <None Remove="Mapper\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="CRUD\" />
-    <Folder Include="DAO\" />
-    <Folder Include="Mapper\" />
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="MySql.Data" Version="9.2.0" />
   </ItemGroup>
   <ItemGroup>

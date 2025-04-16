@@ -83,26 +83,54 @@ namespace UI.View
                 Console.WriteLine($"\nError al registrar: {ex.Message}");
             }
         }
-
-
+        
         public void Login()
         {
-            Console.WriteLine("\n--- Inicio de Sescioón ---");
+            Console.WriteLine("\n--- Inicio de Sesión ---");
 
             Console.Write("Ingrese el Username: ");
             string username = Console.ReadLine();
 
             Console.Write("Ingrese la Contraseña: ");
             string contrasena = Console.ReadLine();
+            Console.WriteLine($"\n");
 
             try
             {
-                string resultado = _userManger.Login(username, contrasena);
-                Console.WriteLine($"\nResultado: {resultado}");
+                var (user, message) = _userManger.Login(username, contrasena);
+                if (user != null)
+                {
+                    Console.WriteLine($"{message} Bienvenido {user.Nombre}, Rol: {user.Rol}");
+                    
+                    switch (user.Rol.ToLower())
+                    {
+                        case "alumno":
+                            //MostrarMenuAlumno((Alumno)user);
+                            break;
+                        case "profesor":
+                            var profesorView = new ProfesorView();
+                            profesorView.MostrarMenu();
+                            break;
+                        case "administrador":
+                            var adminView = new AdminView();
+                            adminView.MostrarMenu();
+                            break;
+                        case "matriculador":
+                            //MostrarMenuMatriculador((Matriculador)user);
+                            break;
+                        default:
+                            Console.WriteLine("Rol no reconocido. Acceso limitado.");
+                            break;
+                    }
+                } else
+                {
+                    Console.WriteLine($"\n{message}");
+                }
             }
-            catch(Exception ex)
+            catch (Exception e)
             {
-                Console.WriteLine($"\nError en el Login: {ex.Message}");
+                Console.WriteLine($"\nError: {e.Message}");
+
             }
             
         }
