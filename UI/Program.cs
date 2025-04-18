@@ -10,6 +10,8 @@ namespace UI
             var userView = new UserView();
             var cursoView = new CursoView();
             var carreraView = new CarreraView(); // nueva instancia
+            var ofertaView = new OfertaAcademicaView();
+
 
             bool salir = false;
 
@@ -21,7 +23,8 @@ namespace UI
                 Console.WriteLine("2. Iniciar Sesión");
                 Console.WriteLine("3. Mantenimiento de Cursos");
                 Console.WriteLine("4. Mantenimiento de Carreras");
-                Console.WriteLine("5. Salir");
+                Console.WriteLine("5. Oferta Académica");
+                Console.WriteLine("6. Salir");
                 Console.Write("Seleccione una opción: ");
                 var opcion = Console.ReadLine();
 
@@ -40,6 +43,9 @@ namespace UI
                         carreraView.MostrarMenu();
                         break;
                     case "5":
+                        ofertaView.MostrarMenu();
+                        break;
+                    case "6":
                         salir = true;
                         break;
                     default:
