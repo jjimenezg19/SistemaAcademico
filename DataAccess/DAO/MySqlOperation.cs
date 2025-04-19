@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using MySql.Data.MySqlClient;
 
@@ -7,73 +8,59 @@ namespace DataAccess.Dao
     public class MySqlOperation
     {
         public string ProcedureName { get; set; }
-        public List<MySqlParameter> parameters;
+
+        // ✅ Propiedad pública para acceder desde otras clases
+        public List<MySqlParameter> Parameters { get; set; }
 
         public MySqlOperation()
         {
-            parameters = new List<MySqlParameter>();
+            Parameters = new List<MySqlParameter>();
+        }
+
+        public void AddParam(MySqlParameter param)
+        {
+            Parameters.Add(param);
         }
 
         public void AddVarcharParam(string parameterName, string paramValue)
         {
-            parameters.Add(new MySqlParameter("@" + parameterName, paramValue));
+            Parameters.Add(new MySqlParameter("@" + parameterName, paramValue));
         }
 
         public void AddTextParam(string parameterName, string paramValue)
         {
-            parameters.Add(new MySqlParameter("@" + parameterName, paramValue));
+            Parameters.Add(new MySqlParameter("@" + parameterName, paramValue));
         }
 
         public void AddDateTimeParam(string parameterName, DateTime paramValue)
         {
-            parameters.Add(new MySqlParameter("@" + parameterName, paramValue));
+            Parameters.Add(new MySqlParameter("@" + parameterName, paramValue));
         }
 
         public void AddTimeSpanParam(string parameterName, TimeSpan? paramValue)
         {
-            if (paramValue.HasValue)
+            Parameters.Add(new MySqlParameter("@" + parameterName, SqlDbType.Time)
             {
-                parameters.Add(new MySqlParameter("@" + parameterName, SqlDbType.Time) { Value = paramValue.Value });
-            }
-            else
-            {
-                parameters.Add(new MySqlParameter("@" + parameterName, SqlDbType.Time) { Value = DBNull.Value });
-            }
+                Value = paramValue ?? (object)DBNull.Value
+            });
         }
-
 
         public void AddIntegerParam(string parameterName, int? paramValue)
         {
-            if (paramValue.HasValue)
+            Parameters.Add(new MySqlParameter("@" + parameterName, SqlDbType.Int)
             {
-                parameters.Add(new MySqlParameter("@" + parameterName, SqlDbType.Int) { Value = paramValue.Value });
-            }
-            else
-            {
-                parameters.Add(new MySqlParameter("@" + parameterName, SqlDbType.Int) { Value = DBNull.Value });
-            }
+                Value = paramValue ?? (object)DBNull.Value
+            });
         }
 
         public void AddDecimalParam(string parameterName, decimal? paramValue)
         {
-            if (paramValue.HasValue)
+            Parameters.Add(new MySqlParameter("@" + parameterName, SqlDbType.Decimal)
             {
-                parameters.Add(new MySqlParameter("@" + parameterName, SqlDbType.Decimal)
-                {
-                    Value = paramValue.Value,
-                    Precision = 5,
-                    Scale = 2
-                });
-            }
-            else
-            {
-                parameters.Add(new MySqlParameter("@" + parameterName, SqlDbType.Decimal)
-                {
-                    Value = DBNull.Value,
-                    Precision = 5,
-                    Scale = 2
-                });
-            }
+                Value = paramValue ?? (object)DBNull.Value,
+                Precision = 5,
+                Scale = 2
+            });
         }
     }
 }

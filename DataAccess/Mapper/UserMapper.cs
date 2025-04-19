@@ -70,7 +70,7 @@ namespace DataAccess.Mapper
             errorMessage.MySqlDbType = MySqlDbType.VarChar;
             errorMessage.Size = 255;
 
-            operation.parameters.Add(errorMessage);
+            operation.Parameters.Add(errorMessage);
 
             return operation;
         }
@@ -85,7 +85,7 @@ namespace DataAccess.Mapper
             operation.AddVarcharParam("p_username", username);
             operation.AddVarcharParam("p_contrasena", password);
 
-            operation.parameters.Add(outputParam);
+            operation.Parameters.Add(outputParam);
 
             return operation;
         }
@@ -109,6 +109,31 @@ namespace DataAccess.Mapper
         {
             throw new NotImplementedException();
         }
+
+        public MySqlOperation GetRetrieveByName(string nombre)
+        {
+            var operation = new MySqlOperation
+            {
+                ProcedureName = "BuscarUsuarioPorNombre"
+            };
+
+            operation.AddVarcharParam("p_nombre", nombre);
+            return operation;
+        }
+
+        public MySqlOperation GetDeleteStatement(string cedula)
+        {
+            var operation = new MySqlOperation
+            {
+                ProcedureName = "EliminarUsuarioPorCedula"
+            };
+
+            operation.AddVarcharParam("p_cedula", cedula);
+
+            return operation;
+        }
+
+
     }
 }
 
