@@ -75,5 +75,30 @@ namespace DataAccess.Dao
 
             MySqlDao.GetInstance().ExecuteStoredProcedure(op);
         }
+
+        // 🔹 Crear nueva carrera
+        public void CrearCarrera(string nombre)
+        {
+            var op = new MySqlOperation { ProcedureName = "CrearCarrera" };
+            op.AddVarcharParam("p_nombre", nombre);
+            MySqlDao.GetInstance().ExecuteStoredProcedure(op);
+        }
+
+        // 🔹 Actualizar carrera existente
+        public void ActualizarCarrera(Carrera carrera)
+        {
+            var op = new MySqlOperation { ProcedureName = "ActualizarCarrera" };
+            op.AddIntegerParam("p_codigo", carrera.Codigo);
+            op.AddVarcharParam("p_nombre", carrera.Nombre);
+            MySqlDao.GetInstance().ExecuteStoredProcedure(op);
+        }
+
+        // 🔹 Eliminar carrera
+        public void EliminarCarrera(int codigo)
+        {
+            var op = new MySqlOperation { ProcedureName = "EliminarCarrera" };
+            op.AddIntegerParam("p_codigo", codigo);
+            MySqlDao.GetInstance().ExecuteStoredProcedure(op);
+        }
     }
 }
