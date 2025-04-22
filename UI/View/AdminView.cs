@@ -1,6 +1,7 @@
 using BL;
 using DTO;
 using BL.Factory;
+using UI.View; // ✅ necesario para usar CursoView, CarreraView y CicloView
 
 namespace UI.View;
 
@@ -8,13 +9,19 @@ public class AdminView
 {
     private readonly UserManager _userManger;
     private readonly AlumnoManager _alumnoManger;
-    
+    private readonly CursoView _cursoView;
+    private readonly CarreraView _carreraView;
+    private readonly CicloView _cicloView;
+
     public AdminView()
     {
         _userManger = new UserManager();
         _alumnoManger = new AlumnoManager();
+        _cursoView = new CursoView();     // agregado
+        _carreraView = new CarreraView(); // agregado
+        _cicloView = new CicloView();     // agregado
     }
-    
+
     public void MostrarMenu()
     {
         bool salir = false;
@@ -25,7 +32,10 @@ public class AdminView
             Console.WriteLine("--- Menú del Adminstrador ---");
             Console.WriteLine("1. Mantenimiento de alumnos.");
             Console.WriteLine("2. Mantenimiento de profesores.");
-            Console.WriteLine("7. Volver al menú principal.");
+            Console.WriteLine("3. Mantenimiento de cursos.");
+            Console.WriteLine("4. Mantenimiento de carreras.");
+            Console.WriteLine("5. Mantenimiento de ciclos.");
+            Console.WriteLine("6. Volver al menú principal.");
             Console.Write("Opción: ");
             var opcion = Console.ReadLine();
 
@@ -39,9 +49,18 @@ public class AdminView
                     break;
 
                 case "3":
+                    _cursoView.MostrarMenuBusqueda(); // acceso a cursos
                     break;
 
                 case "4":
+                    _carreraView.MostrarMenu(); // acceso a carreras
+                    break;
+
+                case "5":
+                    _cicloView.MostrarMenu(); // acceso a ciclos
+                    break;
+
+                case "6":
                     salir = true;
                     break;
 
@@ -92,8 +111,6 @@ public class AdminView
                 break;
             case "6":
                 return;
-                break;
-
             default:
                 Console.WriteLine("Opción no válida.");
                 break;
@@ -102,7 +119,7 @@ public class AdminView
         Console.WriteLine("\nPresione cualquier tecla para continuar...");
         Console.ReadKey();
     }
-    
+
     private void RegistrarAlumno()
     {
         Console.WriteLine("\n--- Registro de Alumno ---");
@@ -133,12 +150,12 @@ public class AdminView
         Usuario nuevoAlumno = UsuarioFactoryManager.ConstruirUsuario(rol, nombre, cedula, email, username, contrasena);
         nuevoAlumno.Telefono = telefono;
         nuevoAlumno.FechaNacimiento = fechaNacimiento;
-        
+
         try
         {
             string resultado = _userManger.RegisterUser(nuevoAlumno);
             Console.WriteLine($"\nResultado: {resultado}");
-            
+
             Console.WriteLine("\n¿Desea realizar algún otra acción en el mantenimiento de alumnos? (s/n)");
             string opcion = Console.ReadLine();
             if (opcion?.ToLower() == "s")
@@ -151,7 +168,7 @@ public class AdminView
             Console.WriteLine($"\nError al registrar: {ex.Message}");
         }
     }
-    
+
     private void MostrarAlumno(Usuario alumno, String message)
     {
         if (alumno == null)
@@ -183,7 +200,7 @@ public class AdminView
         Console.WriteLine("\n--- Buscar Alumno por Nombre ---");
         Console.Write("Ingrese el Nombre: ");
         string nombre = Console.ReadLine();
-        
+
         var (alumno, message) = _alumnoManger.BuscarPorNombre(nombre);
         MostrarAlumno(alumno, message);
     }

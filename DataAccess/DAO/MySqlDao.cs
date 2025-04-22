@@ -6,7 +6,7 @@ namespace DataAccess.Dao
     public class MySqlDao
     {
         private static MySqlDao instance = new MySqlDao();
-        private string _connString = "Server=localhost; Database=sistema_academico; User Id=root; Password=johanadmin";
+        private string _connString = "Server=localhost; Database=sistema_academico; User Id=root; Password=Cmqt1234";
 
         public static MySqlDao GetInstance()
         {
@@ -24,7 +24,7 @@ namespace DataAccess.Dao
                     command.CommandType = CommandType.StoredProcedure;
 
                     // Add parameters
-                    foreach (var p in operation.parameters)
+                    foreach (var p in operation.Parameters)
                     {
                         command.Parameters.Add(p);
                     }
@@ -46,7 +46,7 @@ namespace DataAccess.Dao
                     command.CommandType = CommandType.StoredProcedure;
 
                     // Add parameters
-                    foreach (var p in operation.parameters)
+                    foreach (var p in operation.Parameters)
                     {
                         command.Parameters.Add(p);
                     }
@@ -78,7 +78,7 @@ namespace DataAccess.Dao
                     command.CommandType = CommandType.StoredProcedure;
 
                     // Add parameters
-                    foreach (var p in operation.parameters)
+                    foreach (var p in operation.Parameters)
                     {
                         command.Parameters.Add(p);
                     }

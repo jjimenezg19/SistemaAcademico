@@ -8,26 +8,20 @@ namespace UI
         static void Main(string[] args)
         {
             var userView = new UserView();
-            var cursoView = new CursoView();
-            var carreraView = new CarreraView(); // nueva instancia
             var ofertaView = new OfertaAcademicaView();
             var matriculaView = new MatriculaView();
-
-
 
             bool salir = false;
 
             while (!salir)
             {
                 Console.Clear();
-                Console.WriteLine("=== Sistema Academiíco ===");
+                Console.WriteLine("=== Sistema Académico ===");
                 Console.WriteLine("1. Registrar Usuario");
                 Console.WriteLine("2. Iniciar Sesión");
-                Console.WriteLine("3. Mantenimiento de Cursos");
-                Console.WriteLine("4. Mantenimiento de Carreras");
-                Console.WriteLine("5. Oferta Académica");
-                Console.WriteLine("6. Matrícula");
-                Console.WriteLine("7. Salir");
+                Console.WriteLine("3. Oferta Académica");
+                Console.WriteLine("4. Matrícula");
+                Console.WriteLine("5. Salir");
                 Console.Write("Seleccione una opción: ");
                 var opcion = Console.ReadLine();
 
@@ -40,18 +34,12 @@ namespace UI
                         userView.Login();
                         break;
                     case "3":
-                        cursoView.MostrarMenuBusqueda();
-                        break;
-                    case "4":
-                        carreraView.MostrarMenu();
-                        break;
-                    case "5":
                         ofertaView.MostrarMenu();
                         break;
-                    case "6":
+                    case "4":
                         matriculaView.MostrarMenu();
                         break;
-                    case "7":
+                    case "5":
                         salir = true;
                         break;
                     default:
@@ -59,8 +47,11 @@ namespace UI
                         break;
                 }
 
-                Console.WriteLine("\nPresione cualquier tecla para continuar...");
-                Console.ReadKey();
+                if (!salir)
+                {
+                    Console.WriteLine("\nPresione cualquier tecla para continuar...");
+                    Console.ReadKey();
+                }
             }
         }
     }

@@ -80,7 +80,7 @@ public class AlumnoMapper : ICrudStatements, IObjectMapper
         };
         
         operation.AddVarcharParam("p_nombre", name);
-        operation.parameters.Add(outputParam);
+        operation.Parameters.Add(outputParam);
         return operation;
     }
 }
