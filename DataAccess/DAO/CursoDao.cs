@@ -92,5 +92,34 @@ namespace DataAccess.Dao
 
             MySqlDao.GetInstance().ExecuteStoredProcedure(op);
         }
+
+        // 🔹 Crear nuevo curso
+        public void CrearCurso(Curso curso)
+        {
+            var op = new MySqlOperation { ProcedureName = "CrearCurso" };
+            op.AddVarcharParam("p_nombre", curso.Nombre);
+            op.AddIntegerParam("p_horasSemanales", curso.HorasSemanales);
+            op.AddIntegerParam("p_carreraId", curso.CarreraId);
+            MySqlDao.GetInstance().ExecuteStoredProcedure(op);
+        }
+
+        // 🔹 Actualizar curso
+        public void ActualizarCurso(Curso curso)
+        {
+            var op = new MySqlOperation { ProcedureName = "ActualizarCurso" };
+            op.AddIntegerParam("p_codigo", curso.Codigo);
+            op.AddVarcharParam("p_nombre", curso.Nombre);
+            op.AddIntegerParam("p_horasSemanales", curso.HorasSemanales);
+            op.AddIntegerParam("p_carreraId", curso.CarreraId);
+            MySqlDao.GetInstance().ExecuteStoredProcedure(op);
+        }
+
+        // 🔹 Eliminar curso
+        public void EliminarCurso(int codigo)
+        {
+            var op = new MySqlOperation { ProcedureName = "EliminarCurso" };
+            op.AddIntegerParam("p_codigo", codigo);
+            MySqlDao.GetInstance().ExecuteStoredProcedure(op);
+        }
     }
 }
