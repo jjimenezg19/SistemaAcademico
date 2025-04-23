@@ -26,6 +26,25 @@ public class AlumnoCrudFactory : CrudFactory
         throw new NotImplementedException();
     }
 
+
+    public string UpdateAlumno(BaseClass entityDTO)
+    { 
+        var outputParam = new MySqlParameter("@p_mensaje", MySqlDbType.VarChar, 255)
+        {
+            Direction = ParameterDirection.Output
+        };
+        
+       var operation = _mapper.GetUpdateStatement(entityDTO, outputParam);
+       var result= dao.ExecuteStoredProcedureWithUniqueResult(operation);
+       
+       string message = outputParam.Value.ToString();
+
+       if (result == null || result.Count == 0)
+        return null;
+       
+       return (string)message;
+    }
+
     public override void Delete(BaseClass entityDTO)
     {
         throw new NotImplementedException();
@@ -60,4 +79,22 @@ public class AlumnoCrudFactory : CrudFactory
         return (alumno, message);
     }
     
+    public (Usuario, string) RetrieveByCedula(string cedula)
+    {
+        var outputParam = new MySqlParameter("@p_mensaje", MySqlDbType.VarChar, 255)
+        {
+            Direction = ParameterDirection.Output
+        };
+        
+        var operation = _mapper.GetRetrieveByCedulaStatement(cedula, outputParam);
+        var result = dao.ExecuteStoredProcedureWithUniqueResult(operation);
+        
+        string message = outputParam.Value.ToString();
+        
+        if (result == null || result.Count == 0)
+            return (null, message);
+        
+        var alumno = (Usuario)_mapper.BuildObject(result);
+        return (alumno, message);
+    }
 }

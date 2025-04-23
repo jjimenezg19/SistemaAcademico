@@ -12,18 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44b5f5fe-2af6-410d-bf29-afd9e9ea0aa3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BL/AlumnoManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataAccess/CRUD/AlumnoCrudFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataAccess/Mapper/AlumnoMapper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UI/View/AdminView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SistemaAcademico/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SistemaAcademico/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTO/ExpedienteNotas.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/ExpedienteNotas.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTO/Grupo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/Grupo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataAccess/CRUD/UserCrudFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccess/CRUD/UserCrudFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataAccess/Mapper/ICrudStatements.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccess/Mapper/ICrudStatements.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataAccess/Mapper/UserMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccess/Mapper/UserMapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/View/ProfesorView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UI/View/ProfesorView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/View/UserView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UI/View/UserView.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,6 +154,7 @@
       <workItem from="1744395426116" duration="7053000" />
       <workItem from="1744411698862" duration="13913000" />
       <workItem from="1744597660570" duration="1001000" />
+      <workItem from="1745101220603" duration="2962000" />
     </task>
     <servers />
   </component>

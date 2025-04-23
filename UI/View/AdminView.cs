@@ -174,8 +174,48 @@ public class AdminView
     private void ActulizarAlumno()
     {
         Console.WriteLine("\n--- Actulizar Alumno ---");
-        Console.Write("Ingrese el Nombre: ");
+        
+        Console.Write("Ingrese la cedula del alumno que desea actualizar: ");
+        string cedulaId = Console.ReadLine();
+        var (alumno, message) = _alumnoManger.BuscarPorCedula(cedulaId);
+        
+        Console.Write("Ingrese el nuevo username: ");
+        string userName = Console.ReadLine();
+        
+        Console.Write("Ingrese la nueva contraseña: ");
+        string contrasena = Console.ReadLine();
+        
+        Console.Write("Ingrese la nueva cedula: ");
+        string cedula = Console.ReadLine();
+        
+        Console.Write("Ingrese el nuevo nombre: ");
         string nombre = Console.ReadLine();
+        
+        Console.Write("Ingrese el nuevo telefono: ");
+        string telefono = Console.ReadLine();
+        
+        Console.Write("Ingrese el nuevo email: ");
+        string email = Console.ReadLine();
+
+        Usuario nuevoAlumno = UsuarioFactoryManager.ConstruirUsuario("profesor", nombre, cedula, email, userName, contrasena);
+        nuevoAlumno.Telefono = telefono;
+        
+        try
+        {
+            string resultado = _alumnoManger.ActaulizarAlumno(nuevoAlumno);
+            Console.WriteLine($"\nResultado: {resultado}");
+            
+            Console.WriteLine("\n¿Desea realizar algún otra acción en el mantenimiento de alumnos? (s/n)");
+            string opcion = Console.ReadLine();
+            if (opcion?.ToLower() == "s")
+            {
+                MantenimientoDeAlumnos();
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"\nError al actualizar el alumno: {ex.Message}");
+        }
     }
 
     private void BuscarAlumnoPorNombre()
@@ -185,6 +225,16 @@ public class AdminView
         string nombre = Console.ReadLine();
         
         var (alumno, message) = _alumnoManger.BuscarPorNombre(nombre);
+        MostrarAlumno(alumno, message);
+    }
+    
+    private void BuscarAlumnoPorCedula()
+    {
+        Console.WriteLine("\n--- Buscar Alumno por Cedula ---");
+        Console.Write("Ingrese la cedula del alumno: ");
+        string cedula = Console.ReadLine();
+        
+        var (alumno, message) = _alumnoManger.BuscarPorNombre(cedula);
         MostrarAlumno(alumno, message);
     }
 }

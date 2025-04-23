@@ -24,7 +24,7 @@ namespace DataAccess.Dao
                     command.CommandType = CommandType.StoredProcedure;
 
                     // Add parameters
-                    foreach (var p in operation.parameters)
+                    foreach (var p in operation.Parameters)
                     {
                         command.Parameters.Add(p);
                     }
@@ -46,7 +46,7 @@ namespace DataAccess.Dao
                     command.CommandType = CommandType.StoredProcedure;
 
                     // Add parameters
-                    foreach (var p in operation.parameters)
+                    foreach (var p in operation.Parameters)
                     {
                         command.Parameters.Add(p);
                     }
@@ -78,7 +78,7 @@ namespace DataAccess.Dao
                     command.CommandType = CommandType.StoredProcedure;
 
                     // Add parameters
-                    foreach (var p in operation.parameters)
+                    foreach (var p in operation.Parameters)
                     {
                         command.Parameters.Add(p);
                     }

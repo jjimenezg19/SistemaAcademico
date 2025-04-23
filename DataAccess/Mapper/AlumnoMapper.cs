@@ -54,7 +54,22 @@ public class AlumnoMapper : ICrudStatements, IObjectMapper
 
     public MySqlOperation GetUpdateStatement(BaseClass entityDTO, MySqlParameter errorMessage)
     {
-        throw new NotImplementedException();
+        var operation = new MySqlOperation()
+        {
+            ProcedureName = "ActualizarUsuario"
+        };
+        
+        var alumno = (Alumno) entityDTO;
+        operation.AddVarcharParam("p_userName", alumno.UserName);
+        operation.AddVarcharParam("p_contrasena", alumno.Contrasena);
+        operation.AddVarcharParam("p_rol", alumno.Rol);
+        operation.AddVarcharParam("p_cedula", alumno.Cedula);
+        operation.AddVarcharParam("p_nombre", alumno.Nombre);
+        operation.AddVarcharParam("p_telefon", alumno.Telefono);
+        operation.AddVarcharParam("p_email", alumno.Email);
+        operation.AddDateTimeParam("p_fechaNacimiento", alumno.FechaNacimiento);
+
+        return operation;
     }
 
     public MySqlOperation GetDeleteStatement(BaseClass entityDTO, MySqlParameter errorMessage)
@@ -80,7 +95,19 @@ public class AlumnoMapper : ICrudStatements, IObjectMapper
         };
         
         operation.AddVarcharParam("p_nombre", name);
-        operation.parameters.Add(outputParam);
+        operation.Parameters.Add(outputParam);
+        return operation;
+    }
+    
+    public MySqlOperation GetRetrieveByCedulaStatement(string cedula, MySqlParameter outputParam)
+    {
+        MySqlOperation operation = new MySqlOperation()
+        {
+            ProcedureName = "ObtenerAlumnoPorCedula"
+        };
+        
+        operation.AddVarcharParam("p_cedula", cedula);
+        operation.Parameters.Add(outputParam);
         return operation;
     }
 }

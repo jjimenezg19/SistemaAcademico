@@ -11,9 +11,19 @@ public class AlumnoManager
         _crud = new AlumnoCrudFactory();
     }
 
+    public string ActaulizarAlumno(Usuario usuario)
+    {
+        return _crud.UpdateAlumno(usuario);
+    }
+
     public (Usuario, string) BuscarPorNombre(string nombre)
     {
         return _crud.RetrieveByName(nombre); 
+    }
+    
+    public (Usuario, string) BuscarPorCedula(string cedula)
+    {
+        return _crud.RetrieveByName(cedula); 
     }
     
 }
