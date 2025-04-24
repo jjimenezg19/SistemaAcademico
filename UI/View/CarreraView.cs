@@ -8,7 +8,12 @@ namespace UI.View
     {
         private readonly CarreraManager _carreraManager = new CarreraManager();
 
-        public void MostrarMenu()
+        public void MantenimientoDeCarreras()
+        {
+            MostrarMenu();
+        }
+
+        private void MostrarMenu()
         {
             bool salir = false;
             while (!salir)
@@ -18,36 +23,40 @@ namespace UI.View
                 Console.WriteLine("1. Buscar por nombre");
                 Console.WriteLine("2. Buscar por código");
                 Console.WriteLine("3. Ver todas");
-                Console.WriteLine("4. Volver al menú principal");
+                Console.WriteLine("4. Crear nueva carrera");
+                Console.WriteLine("5. Actualizar carrera");
+                Console.WriteLine("6. Eliminar carrera");
+                Console.WriteLine("7. Volver al menú principal");
                 Console.Write("Seleccione una opción: ");
                 string opcion = Console.ReadLine();
 
                 switch (opcion)
                 {
                     case "1":
-                        Console.Write("Ingrese el nombre de la carrera: ");
-                        string nombre = Console.ReadLine();
-                        var carreraPorNombre = _carreraManager.BuscarPorNombre(nombre);
-                        MostrarCarrera(carreraPorNombre);
+                        BuscarPorNombre();
                         break;
 
                     case "2":
-                        Console.Write("Ingrese el código de la carrera: ");
-                        if (int.TryParse(Console.ReadLine(), out int codigo))
-                        {
-                            var carreraPorCodigo = _carreraManager.BuscarPorCodigo(codigo);
-                            MostrarCarrera(carreraPorCodigo);
-                        }
-                        else Console.WriteLine("⚠️ Código inválido.");
+                        BuscarPorCodigo();
                         break;
 
                     case "3":
-                        var carreras = _carreraManager.ObtenerTodas();
-                        if (carreras.Count == 0) Console.WriteLine("No hay carreras registradas.");
-                        else foreach (var c in carreras) MostrarCarrera(c);
+                        VerTodas();
                         break;
 
                     case "4":
+                        CrearCarrera();
+                        break;
+
+                    case "5":
+                        ActualizarCarrera();
+                        break;
+
+                    case "6":
+                        EliminarCarrera();
+                        break;
+
+                    case "7":
                         salir = true;
                         break;
 
@@ -58,6 +67,78 @@ namespace UI.View
 
                 Console.WriteLine("\nPresione una tecla para continuar...");
                 Console.ReadKey();
+            }
+        }
+
+        private void BuscarPorNombre()
+        {
+            Console.Write("Ingrese el nombre de la carrera: ");
+            string nombre = Console.ReadLine();
+            var carreraPorNombre = _carreraManager.BuscarPorNombre(nombre);
+            MostrarCarrera(carreraPorNombre);
+        }
+
+        private void BuscarPorCodigo()
+        {
+            Console.Write("Ingrese el código de la carrera: ");
+            if (int.TryParse(Console.ReadLine(), out int codigo))
+            {
+                var carreraPorCodigo = _carreraManager.BuscarPorCodigo(codigo);
+                MostrarCarrera(carreraPorCodigo);
+            }
+            else Console.WriteLine("⚠️ Código inválido.");
+        }
+
+        private void VerTodas()
+        {
+            var carreras = _carreraManager.ObtenerTodas();
+            if (carreras.Count == 0) Console.WriteLine("No hay carreras registradas.");
+            else foreach (var c in carreras) MostrarCarrera(c);
+        }
+
+        private void CrearCarrera()
+        {
+            Console.Write("Ingrese el nombre de la nueva carrera: ");
+            string nombre = Console.ReadLine();
+
+            _carreraManager.CrearCarrera(nombre);
+            Console.WriteLine("✅ Carrera creada correctamente.");
+        }
+
+        private void ActualizarCarrera()
+        {
+            Console.Write("Código de la carrera a actualizar: ");
+            if (int.TryParse(Console.ReadLine(), out int codigo))
+            {
+                Console.Write("Nuevo nombre: ");
+                string nuevoNombre = Console.ReadLine();
+
+                var carrera = new Carrera
+                {
+                    Codigo = codigo,
+                    Nombre = nuevoNombre
+                };
+
+                _carreraManager.ActualizarCarrera(carrera);
+                Console.WriteLine("✅ Carrera actualizada correctamente.");
+            }
+            else
+            {
+                Console.WriteLine("⚠️ Código inválido.");
+            }
+        }
+
+        private void EliminarCarrera()
+        {
+            Console.Write("Código de la carrera a eliminar: ");
+            if (int.TryParse(Console.ReadLine(), out int codigo))
+            {
+                _carreraManager.EliminarCarrera(codigo);
+                Console.WriteLine("✅ Carrera eliminada correctamente.");
+            }
+            else
+            {
+                Console.WriteLine("⚠️ Código inválido.");
             }
         }
 

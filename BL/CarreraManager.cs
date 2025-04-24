@@ -44,5 +44,20 @@ namespace BL
         {
             _cursoDao.ActualizarOrdenCurso(carreraId, cursoId, nuevoOrden);
         }
+
+        public void CrearCarrera(string nombre)
+        {
+            _carreraDao.CrearCarrera(nombre);
+        }
+
+        public void ActualizarCarrera(Carrera carrera)
+        {
+            _carreraDao.ActualizarCarrera(carrera);
+        }
+
+        public void EliminarCarrera(int codigo)
+        {
+            _carreraDao.EliminarCarrera(codigo);
+        }
     }
 }

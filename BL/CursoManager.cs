@@ -1,5 +1,6 @@
 using DTO;
 using DataAccess.Dao;
+using System.Collections.Generic;
 
 namespace BL
 {
@@ -20,6 +21,21 @@ namespace BL
         public List<Curso> BuscarCursosPorCarrera(int carreraId)
         {
             return _cursoDao.BuscarPorCarrera(carreraId);
+        }
+
+        public void CrearCurso(Curso curso)
+        {
+            _cursoDao.CrearCurso(curso);
+        }
+
+        public void ActualizarCurso(Curso curso)
+        {
+            _cursoDao.ActualizarCurso(curso);
+        }
+
+        public void EliminarCurso(int codigo)
+        {
+            _cursoDao.EliminarCurso(codigo);
         }
     }
 }

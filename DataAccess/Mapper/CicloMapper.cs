@@ -10,12 +10,12 @@ namespace DataAccess.Mapper
         {
             return new Ciclo
             {
-                Codigo = Convert.ToInt32(row["codigo"]),
-                Anio = Convert.ToInt32(row["anio"]),
-                Numero = Convert.ToInt32(row["numero"]),
-                FechaInicio = Convert.ToDateTime(row["fechaInicio"]),
-                FechaFinalizacion = Convert.ToDateTime(row["fechaFinalizacion"]),
-                Activo = Convert.ToBoolean(row["activo"])
+                Codigo = Convert.ToInt32(row["CODIGO"]),
+                Anio = Convert.ToInt32(row["ANIO"]),
+                Numero = Convert.ToInt32(row["NUMERO"]),
+                FechaInicio = Convert.ToDateTime(row["FECHA_INICIO"]),
+                FechaFinalizacion = Convert.ToDateTime(row["FECHA_FINALIZACION"]),
+                Activo = Convert.ToBoolean(row["ACTIVO"])
             };
         }
 

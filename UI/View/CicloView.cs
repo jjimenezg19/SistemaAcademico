@@ -1,4 +1,4 @@
-using DataAccess.Crud;
+using BL;
 using DTO;
 using System;
 using System.Collections.Generic;
@@ -7,9 +7,14 @@ namespace UI
 {
     public class CicloView
     {
-        private CicloDao cicloDao = new CicloDao();
+        private readonly CicloManager _cicloManager = new CicloManager();
 
-        public void MostrarMenu()
+        public void MantenimientoDeCiclos()
+        {
+            MostrarMenu();
+        }
+
+        private void MostrarMenu()
         {
             int opcion = -1;
             do
@@ -18,7 +23,10 @@ namespace UI
                 Console.WriteLine("==== Mantenimiento de Ciclos ====");
                 Console.WriteLine("1. Ver todos los ciclos");
                 Console.WriteLine("2. Buscar ciclos por año");
-                Console.WriteLine("3. Activar un ciclo");
+                Console.WriteLine("3. Crear nuevo ciclo");
+                Console.WriteLine("4. Actualizar ciclo");
+                Console.WriteLine("5. Eliminar ciclo");
+                Console.WriteLine("6. Activar un ciclo");
                 Console.WriteLine("0. Volver al menú principal");
                 Console.Write("Seleccione una opción: ");
                 int.TryParse(Console.ReadLine(), out opcion);
@@ -32,6 +40,15 @@ namespace UI
                         BuscarPorAnio();
                         break;
                     case 3:
+                        CrearCiclo();
+                        break;
+                    case 4:
+                        ActualizarCiclo();
+                        break;
+                    case 5:
+                        EliminarCiclo();
+                        break;
+                    case 6:
                         ActivarCiclo();
                         break;
                     case 0:
@@ -53,7 +70,7 @@ namespace UI
 
         private void VerTodosLosCiclos()
         {
-            var ciclos = cicloDao.ObtenerTodos();
+            var ciclos = _cicloManager.ObtenerTodos();
             Console.WriteLine("\nLista de Ciclos:");
             foreach (var c in ciclos)
             {
@@ -66,7 +83,7 @@ namespace UI
             Console.Write("\nIngrese el año a buscar: ");
             if (int.TryParse(Console.ReadLine(), out int anio))
             {
-                var ciclos = cicloDao.BuscarPorAnio(anio);
+                var ciclos = _cicloManager.BuscarPorAnio(anio);
                 if (ciclos.Count == 0)
                 {
                     Console.WriteLine("No se encontraron ciclos para ese año.");
@@ -85,12 +102,81 @@ namespace UI
             }
         }
 
+        private void CrearCiclo()
+        {
+            Console.Write("\nAño del ciclo: ");
+            int anio = int.Parse(Console.ReadLine());
+
+            Console.Write("Número del ciclo (1 o 2): ");
+            int numero = int.Parse(Console.ReadLine());
+
+            Console.Write("Fecha de inicio (yyyy-mm-dd): ");
+            DateTime fechaInicio = DateTime.Parse(Console.ReadLine());
+
+            Console.Write("Fecha de finalización (yyyy-mm-dd): ");
+            DateTime fechaFin = DateTime.Parse(Console.ReadLine());
+
+            Ciclo nuevoCiclo = new Ciclo
+            {
+                Anio = anio,
+                Numero = numero,
+                FechaInicio = fechaInicio,
+                FechaFinalizacion = fechaFin
+            };
+
+            _cicloManager.CrearCiclo(nuevoCiclo);
+            Console.WriteLine("✅ Ciclo creado exitosamente.");
+        }
+
+        private void ActualizarCiclo()
+        {
+            Console.Write("\nCódigo del ciclo a actualizar: ");
+            int codigo = int.Parse(Console.ReadLine());
+
+            Console.Write("Nuevo año: ");
+            int anio = int.Parse(Console.ReadLine());
+
+            Console.Write("Nuevo número: ");
+            int numero = int.Parse(Console.ReadLine());
+
+            Console.Write("Nueva fecha de inicio (yyyy-mm-dd): ");
+            DateTime fechaInicio = DateTime.Parse(Console.ReadLine());
+
+            Console.Write("Nueva fecha de finalización (yyyy-mm-dd): ");
+            DateTime fechaFin = DateTime.Parse(Console.ReadLine());
+
+            Ciclo cicloActualizado = new Ciclo
+            {
+                Anio = anio,
+                Numero = numero,
+                FechaInicio = fechaInicio,
+                FechaFinalizacion = fechaFin
+            };
+
+            _cicloManager.ActualizarCiclo(cicloActualizado, codigo);
+            Console.WriteLine("✅ Ciclo actualizado exitosamente.");
+        }
+
+        private void EliminarCiclo()
+        {
+            Console.Write("\nCódigo del ciclo a eliminar: ");
+            if (int.TryParse(Console.ReadLine(), out int codigo))
+            {
+                _cicloManager.EliminarCiclo(codigo);
+                Console.WriteLine("✅ Ciclo eliminado exitosamente.");
+            }
+            else
+            {
+                Console.WriteLine("Código inválido.");
+            }
+        }
+
         private void ActivarCiclo()
         {
             Console.Write("\nIngrese el código del ciclo que desea activar: ");
             if (int.TryParse(Console.ReadLine(), out int codigo))
             {
-                cicloDao.ActivarCiclo(codigo);
+                _cicloManager.ActivarCiclo(codigo);
                 Console.WriteLine($"✅ Ciclo {codigo} activado exitosamente.");
             }
             else

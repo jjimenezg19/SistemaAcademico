@@ -1,5 +1,8 @@
 using DTO;
 using DataAccess.Mapper;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DataAccess.Mapper
 {
@@ -9,10 +12,10 @@ namespace DataAccess.Mapper
         {
             var curso = new Curso
             {
-                Codigo = Convert.ToInt32(row["codigo"]),
-                Nombre = row["nombre"].ToString(),
-                HorasSemanales = Convert.ToInt32(row["horasSemanales"]),
-                CarreraId = Convert.ToInt32(row["carrera_id"])
+                Codigo = Convert.ToInt32(row["CODIGO"]),
+                Nombre = row["NOMBRE"].ToString(),
+                HorasSemanales = Convert.ToInt32(row["HORAS_SEMANALES"]),
+                CarreraId = Convert.ToInt32(row["CARRERA_ID"])
             };
             return curso;
         }
