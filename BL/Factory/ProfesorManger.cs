@@ -1,19 +1,19 @@
 using DTO;
 using DataAccess.CRUD;
 
-namespace BL;
+namespace BL.Factory;
 
-public class AlumnoManager
+public class ProfesorManger
 {
-    private readonly AlumnoCrudFactory _crud ;
-    public AlumnoManager()
+    private readonly ProfesorCrudFactory _crud ;
+    public ProfesorManger()
     {
-        _crud = new AlumnoCrudFactory();
+        _crud = new ProfesorCrudFactory();
     }
 
-    public string ActaulizarAlumno(Usuario usuario)
+    public string ActaulizarProfesor(Usuario usuario)
     {
-        return _crud.UpdateAlumno(usuario);
+        return _crud.UpdateProfesor(usuario);
     }
 
     public string EliminarAlumno(string id)
@@ -30,5 +30,4 @@ public class AlumnoManager
     {
         return _crud.RetrieveByCedula(cedula); 
     }
-    
 }

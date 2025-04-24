@@ -6,13 +6,13 @@ using DTO;
 
 namespace DataAccess.CRUD;
 
-public class AlumnoCrudFactory : CrudFactory
+public class ProfesorCrudFactory : CrudFactory
 {
-    private readonly AlumnoMapper _mapper;
+    private readonly ProfesorMapper _mapper;
     
-    public AlumnoCrudFactory()
+    public ProfesorCrudFactory()
     {
-        _mapper = new AlumnoMapper();
+        _mapper = new ProfesorMapper();
         dao = MySqlDao.GetInstance();
     }
     
@@ -27,7 +27,7 @@ public class AlumnoCrudFactory : CrudFactory
     }
 
 
-    public string UpdateAlumno(BaseClass entityDTO)
+    public string UpdateProfesor(BaseClass entityDTO)
     { 
         var outputParam = new MySqlParameter("@p_mensaje", MySqlDbType.VarChar, 255)
         {
@@ -92,8 +92,8 @@ public class AlumnoCrudFactory : CrudFactory
         if (result == null || result.Count == 0)
             return (null, message);
         
-        var alumno = (Usuario)_mapper.BuildObject(result);
-        return (alumno, message);
+        var profesor = (Usuario)_mapper.BuildObject(result);
+        return (profesor, message);
     }
     
     public (Usuario, string) RetrieveByCedula(string cedula)
@@ -111,7 +111,7 @@ public class AlumnoCrudFactory : CrudFactory
         if (result == null || result.Count == 0)
             return (null, message);
         
-        var alumno = (Usuario)_mapper.BuildObject(result);
-        return (alumno, message);
+        var profesor = (Usuario)_mapper.BuildObject(result);
+        return (profesor, message);
     }
 }

@@ -1,11 +1,10 @@
-using System.Data;
 using DataAccess.Dao;
 using DTO;
 using MySql.Data.MySqlClient;
 
 namespace DataAccess.Mapper;
 
-public class AlumnoMapper : ICrudStatements, IObjectMapper
+public class ProfesorMapper : ICrudStatements, IObjectMapper
 {
     public BaseClass BuildObject(Dictionary<string, object> row)
     {
@@ -54,21 +53,21 @@ public class AlumnoMapper : ICrudStatements, IObjectMapper
 
     public MySqlOperation GetUpdateStatement(BaseClass entityDTO, MySqlParameter outputParam)
     {
-        var alumno = (Usuario) entityDTO;
+        var profesor = (Usuario) entityDTO;
         
         var operation = new MySqlOperation()
         {
             ProcedureName = "ActualizarUsuario"
         };
         
-        operation.AddVarcharParam("p_cedula", alumno.Cedula);
-        operation.AddVarcharParam("p_userName", alumno.UserName);
-        operation.AddVarcharParam("p_contrasena", alumno.Contrasena);
-        operation.AddVarcharParam("p_rol", alumno.Rol);
-        operation.AddVarcharParam("p_nombre", alumno.Nombre);
-        operation.AddVarcharParam("p_telefono", alumno.Telefono);
-        operation.AddVarcharParam("p_email", alumno.Email);
-        operation.AddDateTimeParam("p_fechaNacimiento", alumno.FechaNacimiento);
+        operation.AddVarcharParam("p_cedula", profesor.Cedula);
+        operation.AddVarcharParam("p_userName", profesor.UserName);
+        operation.AddVarcharParam("p_contrasena", profesor.Contrasena);
+        operation.AddVarcharParam("p_rol", profesor.Rol);
+        operation.AddVarcharParam("p_nombre", profesor.Nombre);
+        operation.AddVarcharParam("p_telefono", profesor.Telefono);
+        operation.AddVarcharParam("p_email", profesor.Email);
+        operation.AddDateTimeParam("p_fechaNacimiento", profesor.FechaNacimiento);
         operation.Parameters.Add(outputParam);
         
         return operation;
