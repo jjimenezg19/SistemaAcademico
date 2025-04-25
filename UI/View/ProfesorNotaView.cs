@@ -23,7 +23,7 @@ namespace UI.View
 				Console.WriteLine("1. Registrar nota");
 				Console.WriteLine("2. Modificar nota");
 				Console.WriteLine("3. Volver al menú principal");
-				Console.WriteLine("3. Opción: ");
+				Console.WriteLine("Seleccione una Opción: ");
 				
 				var opcion = Console.ReadLine();
 

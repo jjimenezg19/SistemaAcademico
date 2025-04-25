@@ -12,16 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44b5f5fe-2af6-410d-bf29-afd9e9ea0aa3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BL/NotaManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataAccess/CRUD/NotaCrudFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataAccess/Mapper/NotaMapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SistemaAcademico/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SistemaAcademico/.idea/projectSettingsUpdater.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SistemaAcademico/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SistemaAcademico/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTO/Grupo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/Grupo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DTO/RegistroNota.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/RegistroNota.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataAccess/DAO/MySqlDao.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccess/DAO/MySqlDao.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataAccess/DAO/MySqlOperation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccess/DAO/MySqlOperation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/View/CicloView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UI/View/CicloView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UI/View/ProfesorNotaView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UI/View/ProfesorNotaView.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -171,7 +162,7 @@
       <workItem from="1744597660570" duration="1001000" />
       <workItem from="1745101220603" duration="2962000" />
       <workItem from="1745462016030" duration="8310000" />
-      <workItem from="1745596719375" duration="539000" />
+      <workItem from="1745596719375" duration="2740000" />
     </task>
     <servers />
   </component>
