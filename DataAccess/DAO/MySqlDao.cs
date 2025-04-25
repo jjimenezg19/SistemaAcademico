@@ -6,7 +6,7 @@ namespace DataAccess.Dao
     public class MySqlDao
     {
         private static MySqlDao instance = new MySqlDao();
-        private string _connString = "Server=localhost; Database=sistema_academico; User Id=root; Password=Cmqt1234";
+        private string _connString = "Server=localhost; Database=sistema_academico; User Id=root; Password=root";
 
         public static MySqlDao GetInstance()
         {

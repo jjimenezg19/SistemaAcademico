@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using DTO;
-using DataAccess.Dao;
 
 namespace DataAccess.Dao
 {
@@ -22,6 +18,7 @@ namespace DataAccess.Dao
             op.AddIntegerParam("p_anio", anio);
             op.AddIntegerParam("p_numeroCiclo", numeroCiclo);
 
+
             var resultados = MySqlDao.GetInstance().ExecuteStoredProcedureWithQuery(op);
 
             return resultados.Select(row => new Grupo
@@ -36,6 +33,8 @@ namespace DataAccess.Dao
 
         public void InsertarMatricula(Matricula matricula)
         {
+            var cicloId = ObtenerCicloId(matricula.Grupo.CicloAnio, matricula.Grupo.CicloNumero);
+
             var op = new MySqlOperation
             {
                 ProcedureName = "InsertarMatricula"
@@ -44,14 +43,15 @@ namespace DataAccess.Dao
             op.AddVarcharParam("p_cedulaAlumno", matricula.Alumno.Cedula);
             op.AddIntegerParam("p_cursoId", matricula.Grupo.CodigoCurso);
             op.AddIntegerParam("p_numeroGrupo", matricula.Grupo.NumeroDeGrupo);
-            op.AddIntegerParam("p_anio", matricula.Grupo.CicloAnio);
-            op.AddIntegerParam("p_numeroCiclo", matricula.Grupo.CicloNumero);
+            op.AddIntegerParam("p_cicloId", cicloId);
 
             MySqlDao.GetInstance().ExecuteStoredProcedure(op);
         }
 
         public void EliminarMatricula(Matricula matricula)
         {
+            var cicloId = ObtenerCicloId(matricula.Grupo.CicloAnio, matricula.Grupo.CicloNumero);
+
             var op = new MySqlOperation
             {
                 ProcedureName = "EliminarMatricula"
@@ -60,11 +60,28 @@ namespace DataAccess.Dao
             op.AddVarcharParam("p_cedulaAlumno", matricula.Alumno.Cedula);
             op.AddIntegerParam("p_cursoId", matricula.Grupo.CodigoCurso);
             op.AddIntegerParam("p_numeroGrupo", matricula.Grupo.NumeroDeGrupo);
-            op.AddIntegerParam("p_anio", matricula.Grupo.CicloAnio);
-            op.AddIntegerParam("p_numeroCiclo", matricula.Grupo.CicloNumero);
+            op.AddIntegerParam("p_cicloId", cicloId);
 
             MySqlDao.GetInstance().ExecuteStoredProcedure(op);
         }
+
+        private int ObtenerCicloId(int anio, int numero)
+        {
+            var op = new MySqlOperation
+            {
+                ProcedureName = "BuscarCicloIdPorAnioYNumero"
+            };
+
+            op.AddIntegerParam("p_anio", anio);
+            op.AddIntegerParam("p_numero", numero);
+
+            var result = MySqlDao.GetInstance().ExecuteStoredProcedureWithUniqueResult(op);
+
+            if (result == null || !result.ContainsKey("codigo"))
+                throw new Exception("❌ No se encontró un ciclo con ese año y número.");
+
+            return Convert.ToInt32(result["codigo"]);
+
+        }
     }
 }
-

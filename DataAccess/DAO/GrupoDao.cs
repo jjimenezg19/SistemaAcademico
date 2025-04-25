@@ -26,14 +26,15 @@ namespace DataAccess.Dao
 
             return resultados.Select(row => new Grupo
             {
-                CodigoCurso = Convert.ToInt32(row["codigoCurso"]),
-                CicloAnio = Convert.ToInt32(row["cicloAnio"]),
-                CicloNumero = Convert.ToInt32(row["cicloNumero"]),
+                CodigoCurso = cursoId, 
                 NumeroDeGrupo = Convert.ToInt32(row["numeroGrupo"]),
-                Horario = Convert.ToDateTime(row["horario"]),
-                // Puedes agregar más campos si los necesitas
+                Horario = Convert.ToDateTime(row["horarioDisponible"]),
+                Profesor = new Profesor { Cedula = row["profesor_cedula"].ToString() },
+                CicloAnio = anio,         
+                CicloNumero = numeroCiclo
             }).ToList();
         }
+
 
         public void InsertarGrupo(Grupo grupo)
         {

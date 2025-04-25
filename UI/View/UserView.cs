@@ -116,7 +116,8 @@ namespace UI.View
                             adminView.MostrarMenu();
                             break;
                         case "matriculador":
-                            //MostrarMenuMatriculador((Matriculador)user);
+                            var matriculadorView = new MatriculadorView();
+                            matriculadorView.MostrarMenu();
                             break;
                         default:
                             Console.WriteLine("Rol no reconocido. Acceso limitado.");
