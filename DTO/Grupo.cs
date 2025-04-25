@@ -2,7 +2,7 @@
 
 namespace DTO
 {
-    public class Grupo : ISubject 
+    public class Grupo :BaseClass, ISubject
     {
         public int CicloAnio { get; set; }
         public int CicloNumero { get; set; }

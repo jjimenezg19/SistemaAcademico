@@ -27,7 +27,7 @@ namespace UI
                 Console.WriteLine("4. Actualizar ciclo");
                 Console.WriteLine("5. Eliminar ciclo");
                 Console.WriteLine("6. Activar un ciclo");
-                Console.WriteLine("0. Volver al menú principal");
+                Console.WriteLine("7. Volver al menú principal");
                 Console.Write("Seleccione una opción: ");
                 int.TryParse(Console.ReadLine(), out opcion);
 
@@ -51,7 +51,7 @@ namespace UI
                     case 6:
                         ActivarCiclo();
                         break;
-                    case 0:
+                    case 7:
                         Console.WriteLine("Regresando al menú principal...");
                         break;
                     default:
@@ -65,7 +65,7 @@ namespace UI
                     Console.ReadKey();
                 }
 
-            } while (opcion != 0);
+            } while (opcion != 7);
         }
 
         private void VerTodosLosCiclos()

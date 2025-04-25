@@ -62,5 +62,13 @@ namespace DataAccess.Dao
                 Scale = 2
             });
         }
+        
+        public void AddFloatParam(string parameterName, float? paramValue)
+        {
+            Parameters.Add(new MySqlParameter("@" + parameterName, MySqlDbType.Float)
+            {
+                Value = paramValue ?? (object)DBNull.Value
+            });
+        }
     }
 }
