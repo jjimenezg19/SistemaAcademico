@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using MySql.Data.MySqlClient;
 
 namespace DataAccess.Dao
